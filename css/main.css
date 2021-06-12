@@ -1,0 +1,89 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  color: #6D5D4B;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  line-height: 1.6rem; }
+
+.container {
+  display: grid;
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
+  .container > * {
+    font-size: 3rem;
+    padding: 5rem 2rem; }
+
+.btn,
+.btn::before {
+  background: #c69963;
+  color: #f9f7f6;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all .2s; }
+
+.btn:hover {
+  background: #B28451; }
+
+.heading-primary {
+  color: #f9f7f6;
+  font-size: 3rem;
+  font-weight: 600; }
+  .heading-primary span {
+    color: #54483A;
+    display: block;
+    font-size: .6em; }
+
+.sidebar {
+  background: #c69963;
+  grid-column: sidebar-start / sidebar-end;
+  grid-row: 1 / -1; }
+
+.header {
+  background-color: rgba(16, 29, 44, 0.8);
+  grid-column: full-start / col-end 6; }
+  .header__logo {
+    width: 20px; }
+  .header__logo-img {
+    width: 100%; }
+
+.realtors {
+  background: #101d2c;
+  grid-column: col-start 7 / full-end; }
+
+.features {
+  background: #f9f7f6;
+  grid-column: center-start / center-end; }
+
+.story__picture {
+  background: #c69963;
+  grid-column: full-start / col-end 4; }
+
+.story__text {
+  background-color: #aaa;
+  grid-column: col-start 5 / full-end; }
+
+.homes {
+  background-color: #f9f7f6;
+  grid-column: center-start / center-end; }
+
+.gallery {
+  background: #aaa;
+  grid-column: full-start / full-end; }
+
+.footer {
+  background: #101d2c;
+  grid-column: full-start / full-end; }
