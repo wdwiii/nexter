@@ -1,0 +1,12 @@
+.header {
+    background-color: rgba($color-secondary, .8);
+    grid-column: full-start / col-end 6;
+
+    &__logo {
+        width: 20px;
+    }
+
+    &__logo-img {
+        width: 100%;
+    }
+}
