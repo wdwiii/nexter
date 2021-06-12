@@ -13,3 +13,51 @@ $color-grey-dark-2: #6D5D4B;
 // FONT VARIABLES
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 10px font/16px = .625
+}
+
+body {
+    color: $color-grey-dark-2;
+    font-family: $font-primary;
+    font-weight: 300;
+    line-height: 1.6rem;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 80vh min-content 40vw  repeat(3, min-content);
+    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+    & > * {
+        font-size: 3rem;
+        padding: 5rem 2rem;
+    }
+}
+
+.btn,
+.btn::before {
+    background: $color-primary;
+    color: $color-grey-light-1;
+    font-family: $font-display;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all .2s;
+}
+
+.btn:hover {
+    background: $color-primary-dark;
+}
