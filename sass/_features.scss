@@ -1,4 +1,51 @@
 .features {
-    background: $color-grey-light-1;
     grid-column: center-start / center-end;
+
+    margin: 15rem 0;
+    //Grid
+    display: grid;
+    grid-gap: 3rem 4rem;
+    //grid colums will reduce to a min. size of 250px and grow to 1 fractional unit
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    align-items: start;
+    justify-content: center;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    @media only screen and (min-width: 52em) {
+        //grid styles
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        //grid item positioning
+        align-items: center;
+    }
+
+    &__icon {
+        fill: $color-primary;
+        margin-right: 1.5rem;
+        //Demensions
+        height: 4rem;
+        width: 4rem;
+
+        @media only screen and (min-width: 64.35em) {
+            //When grid layout transforms into 3-column grid, align feature icons to the top of the cell
+            align-self: start;
+        }
+    }
+
+    &__text {
+        font-size: 1.7rem;
+        line-height: 2rem;
+
+        grid-column: 2 / 3;
+
+        @media only screen and (max-width: 52em) {
+            text-align: center;
+        }
+    }
 }
