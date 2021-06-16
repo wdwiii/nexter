@@ -31,7 +31,6 @@ body {
     color: $color-grey-dark-2;
     font-family: $font-primary;
     font-weight: 300;
-    line-height: 1.6rem;
 }
 
 .container {
@@ -42,21 +41,4 @@ body {
     & > * {
         font-size: 1.4rem;
     }
-}
-
-.btn,
-.btn::before {
-    background: $color-primary;
-    color: $color-grey-light-1;
-    font-family: $font-display;
-    font-size: 1.4rem;
-    font-weight: 600;
-    padding: 1rem 1.5rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all .2s;
-}
-
-.btn:hover {
-    background: $color-primary-dark;
 }
