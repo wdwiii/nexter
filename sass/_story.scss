@@ -9,7 +9,11 @@
         align-items: flex-start;
         justify-content: center;
         //Grid self-postitioning
-        grid-column: col-start 5 / full-end;
+        grid-column: full-start / full-end;
+
+        @media only screen and (min-width: 50em) {
+            grid-column: col-start 5 / full-end;
+        }
 
 //Applies a margin bottom of 3rem to all except the last child element of the .story__content div
         & > *:not(:last-child) {
@@ -27,12 +31,16 @@
         background-repeat: no-repeat;
         background-position: right center;
         //Grid self-positioning
-        grid-column: full-start / col-end 4;
+        grid-column: full-start / full-end;
         //Grid container template
         display: grid;
         align-items: center;
         grid-template-columns: repeat(6, [story-col-start] 1fr [story-col-end]);
         grid-template-rows: repeat(6, [story-row-start] 1fr [story-row-end]);
+
+        @media only screen and (min-width: 50em) {
+            grid-column: full-start / col-end 4;
+        }
     }
 
     &__img--1 {
