@@ -35,8 +35,17 @@ body {
 
 .container {
     display: grid;
-    grid-template-rows: 80vh min-content 40vw  repeat(3, min-content);
-    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    grid-template-rows: [sidebar-start] 6rem [sidebar-end] calc(100vh - 6rem) repeat(6, min-content);
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+    @media only screen and (min-width: 50em) {
+        grid-template-rows: [sidebar-start] 6rem [sidebar-end] 80vh repeat(6, min-content);
+    }
+
+    @media only screen and (min-width: 68.125em) {
+        grid-template-rows: 80vh min-content 40vw  repeat(3, min-content);
+        grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    }
 
     & > * {
         font-size: 1.4rem;
