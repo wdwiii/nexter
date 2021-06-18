@@ -1,4 +1,111 @@
 .homes {
-    background-color: $color-grey-light-1;
     grid-column: center-start / center-end;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 7rem;
+}
+
+
+.home {
+    &__card {
+        background-color: $color-grey-light-1;
+        position: relative;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 1.5rem;
+
+    }
+
+    &__img {
+        width: 100%;
+
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+    }
+
+    &__name {
+        @extend %heading;
+        background: $color-secondary;
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 1.5rem 0;
+        text-align: center;
+        transform: translateY(50%);
+        width: 80%;
+
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        align-self: end;
+        justify-self: center;
+
+    }
+
+    &__icon {
+        fill: $color-primary;
+        height: 2rem;
+        width: 2rem;
+        @extend .m-hor-xs;
+    }
+
+    &__icon-heart {
+        fill: $color-primary;
+        margin: 1.5rem;
+        height: 3rem;
+        width: 3rem;
+        // position: absolute;
+        // right: 1rem;
+        // top: 1rem;
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        justify-self: end;
+    }
+
+    &__location,
+    &__occupancy {
+        margin-top: 2.5rem;
+    }
+
+    &__price,
+    &__occupancy {
+        margin-right: 1.5rem;
+    }
+
+    &__location,
+    &__occupancy,
+    &__size,
+    &__price {
+        font-size: 1.6rem;
+        padding: 1rem 0;
+        //margin-left: 3.5rem;
+        display: flex;
+
+    }
+
+    &__location {
+        grid-column: 1 / 2;
+    }
+
+    &__occupancy {
+
+    }
+
+    &__size {
+        grid-column: 1 / 2;
+
+        sup {
+            font-size: 1rem;
+        }
+
+    }
+
+    &__price {
+
+    }
+
+    &__btn {
+        grid-column: 1 / 3;
+        text-align: center;
+    }
 }
