@@ -1,6 +1,10 @@
 .header {
     background-color: rgba($color-secondary, .8);
-    grid-column: full-start / col-end 6;
+    grid-column: full-start / full-end;
+
+    @media only screen and (min-width: 50em) {
+        grid-column: full-start / col-end 6;
+    }
 
     &__logo {
         width: 20px;
