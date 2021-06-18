@@ -1,12 +1,64 @@
 .story {
 
-    &__picture {
-        background: $color-primary;
-        grid-column: full-start / col-end 4;
+    &__content {
+        background: $color-grey-light-1;
+        padding: 4vh 6vw;
+        //Flex styles
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        //Grid self-postitioning
+        grid-column: full-start / full-end;
+
+        @media only screen and (min-width: 50em) {
+            grid-column: col-start 5 / full-end;
+        }
+
+//Applies a margin bottom of 3rem to all except the last child element of the .story__content div
+        & > *:not(:last-child) {
+            @extend .m-bottom-med;
+        }
     }
 
     &__text {
-        background-color: $color-grey-light-2;
-        grid-column: col-start 5 / full-end;
+        font-size: 1.5rem;
+        font-style: italic;
+    }
+
+    &__pictures {
+        background: linear-gradient(rgba($color-primary, .6), rgba($color-primary-dark, .6)), url('../img/back.jpg');
+        background-repeat: no-repeat;
+        background-position: right center;
+        //Grid self-positioning
+        grid-column: full-start / full-end;
+        //Grid container template
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(6, [story-col-start] 1fr [story-col-end]);
+        grid-template-rows: repeat(6, [story-row-start] 1fr [story-row-end]);
+
+        @media only screen and (min-width: 50em) {
+            grid-column: full-start / col-end 4;
+        }
+    }
+
+    &__img--1 {
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, .5);
+        width: 100%;
+
+        grid-column: story-col-start 2 / span 4;
+        grid-row: story-row-start 2 / span 4;
+
+    }
+
+    &__img--2 {
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, .5);
+        //Width is >100% to extend outside of container. z-index allows overflow to be visible
+        width: 115%;
+        z-index: 50;
+
+        grid-column: story-col-start 4 / span 4;
+        grid-row: story-row-start 3 / span 4;
     }
 }

@@ -1,4 +1,14 @@
 .realtors {
     background: $color-secondary;
-    grid-column: col-start 7 / full-end;
+    grid-column: full-start / full-end;
+    grid-row: 3 / 4;
+
+    @media only screen and (min-width: 50em) {
+        grid-column: col-start 7 / full-end;
+        grid-row: 2 / 3;
+    }
+
+    @media only screen and (min-width: 68.125em) {
+        grid-row: 1 / 2;
+    }
 }

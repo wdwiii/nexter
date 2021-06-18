@@ -1,5 +1,6 @@
 .features {
     grid-column: center-start / center-end;
+    grid-row: 4 / 5;
 
     margin: 15rem 0;
     //Grid
@@ -9,6 +10,14 @@
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     align-items: start;
     justify-content: center;
+
+    @media only screen and (min-width: 50em) {
+        grid-row: 3 / 4;
+    }
+
+    @media only screen and (min-width: 68.125em) {
+        grid-row: 2 / 3;
+    }
 }
 
 .feature {

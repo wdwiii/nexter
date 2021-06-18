@@ -6,14 +6,28 @@
 
 .heading-1 {
     @extend %heading;
+
 }
 
 .heading-2 {
     @extend %heading;
+    font-size: 4rem;
+    font-style: italic;
+
+    &--light {
+        color: $color-grey-light-1;
+    }
+
+    &--dark {
+        color: $color-grey-dark-1;
+    }
 }
 
 .heading-3 {
     @extend %heading;
+    color: $color-primary;
+    font-size: 2.5rem;
+
 }
 
 .heading-4 {
@@ -36,4 +50,23 @@
     @media only screen and (min-width: 46.5em) {
         margin: 1.5rem 0;
     }
+}
+
+
+.btn,
+.btn::before {
+    background: $color-primary;
+    color: $color-grey-light-1;
+    display: inline-block;
+    font-family: $font-display;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 1.5rem 3rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all .2s;
+}
+
+.btn:hover {
+    background: $color-primary-dark;
 }

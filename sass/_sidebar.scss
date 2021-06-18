@@ -1,5 +1,10 @@
 .sidebar {
     background: $color-primary;
-    grid-column: sidebar-start / sidebar-end;
-    grid-row: 1 / -1;
+    grid-row: sidebar-start / sidebar-end;
+    grid-column: 1 / -1;
+
+    @media only screen and (min-width: 68.125em) {
+        grid-row: 1 / -1;
+        grid-column: sidebar-start / sidebar-end;
+    }
 }
