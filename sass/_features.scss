@@ -1,8 +1,7 @@
 .features {
+    @extend .pad-vert-lrg;
     grid-column: center-start / center-end;
     grid-row: 4 / 5;
-
-    margin: 15rem 0;
     //Grid
     display: grid;
     grid-gap: 3rem 4rem;
@@ -10,6 +9,10 @@
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     align-items: start;
     justify-content: center;
+
+    @media only screen and (min-width: 41.25em) {
+        padding: 8rem 0;
+    }
 
     @media only screen and (min-width: 50em) {
         grid-row: 3 / 4;
