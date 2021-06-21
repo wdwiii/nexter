@@ -1,4 +1,93 @@
 .footer {
     background: $color-secondary;
+    color: #fff;
+    text-align: center;
     grid-column: full-start / full-end;
+
+
+    &__nav {
+        list-style: none;
+
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        grid-gap: 2rem;
+
+        @media only screen and (min-width: 50em) {
+            grid-template-columns: repeat(3, minmax(20rem, 1fr));
+        }
+
+        @media only screen and (min-width: 72.5em) {
+            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        }
+
+
+
+        &-item {
+            //Solid color gradient for hover effect
+            background-image: linear-gradient(135deg, $color-primary-dark 0, $color-primary-dark 50%, transparent 50%);
+            background-size: 0; //Size set to 0 to give transparent background
+            background-repeat: no-repeat;
+            //
+            display: block;
+            padding: 1.5rem;
+            position: relative;
+            transition: all .4s;
+
+            &:hover {
+                //On hover, gradient background will expand beyond the transparent half and fill the container with the primary color
+                background-size: 220%;
+            }
+        }
+    }
+
+
+    &__link:link,
+    &__link:active,
+    &__link:visited {
+        color: #fff;
+        display: block;
+        font-family: $font-display;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all .2s;
+    }
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    @extend .m-top-lrg;
+}
+
+.wdw:link,
+.wdw:visited {
+    color: $color-grey-light-1;
+    font-family: $font-display;
+    font-size: 1.6rem;
+    font-style: italic;
+    position: relative;
+    text-decoration: none;
+    transition: all .2s;
+}
+
+.wdw::after {
+    //::after psuedo element will serve as the underline that will expand when name is hovered
+    content: "";
+    background-color: $color-primary;
+    position: absolute;
+        bottom: -1px;
+        left: 0;
+    transform: scaleX(0);
+    transition: transform .2s;
+    height: 2px;
+    width: 100%;
+
+}
+
+.wdw:hover::after {
+    transform: scaleX(1);
 }
