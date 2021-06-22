@@ -1,14 +1,85 @@
 .realtors {
     background: $color-secondary;
+    color: $color-grey-light-1;
     grid-column: full-start / full-end;
     grid-row: 3 / 4;
 
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+
     @media only screen and (min-width: 50em) {
+        justify-content: center;
+
         grid-column: col-start 7 / full-end;
         grid-row: 2 / 3;
     }
 
     @media only screen and (min-width: 68.125em) {
         grid-row: 1 / 2;
+    }
+
+    &__list {
+        @extend .m-top-sm;
+
+        display: grid;
+        grid-template-columns: min-content max-content;
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 3rem 1rem;
+
+        @media only screen and (min-width:37.5em) and (max-width: 50em)  {
+            display: flex;
+            justify-content: space-evenly;
+            width: 90%;
+        }
+    }
+
+    &__heading {
+        @extend %heading;
+        color: $color-primary;
+        display: inline-block;
+        font-size: 1.6rem;
+        text-align: center;
+        text-transform: uppercase;
+
+        grid-column: 1 / -1;
+    }
+}
+
+.realtor {
+    @extend .m-sm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    &__text {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &__img {
+        height: 5rem;
+        width: 5rem;
+
+
+
+        img {
+            border-radius: 50%;
+            width: 100%;
+        }
+    }
+
+    &__name {
+        @extend %heading;
+        font-size: 1.6rem;
+        grid-column: 2 / -1;
+    }
+
+    &__sales {
+        color: $color-grey-light-2;
+        font-size: 1.2rem;
+        grid-column: 2 / -1;
     }
 }

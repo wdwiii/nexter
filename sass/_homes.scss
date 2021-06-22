@@ -1,4 +1,6 @@
 .homes {
+    @extend .pad-vert-xl;
+
     grid-column: center-start / center-end;
 
     display: grid;
