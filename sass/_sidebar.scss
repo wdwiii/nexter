@@ -2,9 +2,163 @@
     background: $color-primary;
     grid-row: sidebar-start / sidebar-end;
     grid-column: 1 / -1;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
 
     @media only screen and (min-width: 68.125em) {
         grid-row: 1 / -1;
         grid-column: sidebar-start / sidebar-end;
     }
+}
+
+/****************************
+Hamburger menu icon styles
+*****************************/
+
+.menu__btn {
+    visibility: hidden;
+}
+
+.menu__icon {
+    position: absolute;
+        top: 3rem;
+        right: 3rem;
+
+    @media only screen and (min-width: 68.125em) {
+        position: fixed;
+            top: 4rem;
+            left: 2.5rem;
+    }
+
+}
+
+.navicon,
+.navicon::before,
+.navicon::after {
+    background: #fff;
+    display: block;
+    height: 5px;
+    width: 3rem;
+}
+
+.navicon {
+    position: relative;
+    transition: all .2s;
+}
+
+.navicon::before,
+.navicon::after {
+    content: "";
+    position: absolute;
+    transition: all .2s;
+    height: 100%;
+    width: 100%;
+}
+
+.navicon::before{
+    top: 1rem;
+}
+
+.navicon::after {
+    top: -1rem;
+}
+
+/******************************************
+Menu icon animation using checkbox hack
+*******************************************/
+
+.menu__btn:checked + .menu__icon .navicon {
+    background: transparent;
+}
+
+.menu__btn:checked + .menu__icon .navicon::before {
+    transform: rotate(135deg);
+    top: 0;
+}
+
+.menu__btn:checked + .menu__icon .navicon::after {
+    transform: rotate(-135deg);
+    top: 0;
+}
+
+/******************************************
+Navigation Container
+*******************************************/
+
+.navigation {
+    background: rgba($color-secondary, .9);
+    position: fixed;
+        top: 6rem;
+    transform: scaleY(0);
+    transform-origin: top;
+    height: calc(100vh - 6rem); //6rem is the height of the sidebar
+    width: 100vw;
+    transition: all .4s;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    //grid-template-columns: repeat(6, 1fr);
+
+
+    &__list {
+        @extend .pad-vert-xl;
+        font-size: 2.5rem;
+        grid-column: 1 / -1;
+        list-style: none;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /******************************************
+    Navigation Links
+    *******************************************/
+
+
+    &__item {
+        @extend .pad-sm;
+        position: relative;
+        text-align: center;
+        transition: all .2s;
+        width: 100%;
+
+        &:hover {
+            background-color: $color-primary;
+        }
+
+        &:not(:first-child)::before {
+            content: "";
+            background: $color-primary;
+            position: absolute;
+                top: 0;
+                left: 50%;
+            height: 1px;
+            width: 80%;
+            transform: translateX(-50%);
+            transition: background .2s;
+        }
+
+        &:hover + &::before {
+            background: transparent;
+        }
+    }
+
+    &__link:link,
+    &__link:visited {
+        color: #fff;
+        font-family: $font-display;
+        text-decoration: none;
+    }
+}
+
+/******************************************
+Navigation Animation
+*******************************************/
+
+.menu__btn:checked ~ .navigation {
+    transform: scaleY(1);
 }
