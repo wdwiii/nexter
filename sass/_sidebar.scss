@@ -177,6 +177,12 @@ Navigation Container
         transition: all .2s;
         flex: 0 0 33%;
 
+        &:hover {
+            @media only screen and (max-width: 68.125em) {
+                background-color: $color-primary;
+            }
+        }
+
         &::before {
             content: "";
             position: absolute;
@@ -204,7 +210,9 @@ Navigation Container
         }
 
         &:hover::before {
-            transform: scaleX(1);
+            @media only screen and (min-width: 68.125em) {
+                transform: scaleX(1);
+            }
         }
 
     }
