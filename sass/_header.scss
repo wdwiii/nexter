@@ -1,16 +1,73 @@
 .header {
-    background-color: rgba($color-secondary, .8);
+    background-image: linear-gradient(rgba($color-secondary, .9), rgba($color-secondary, .9)), url('../img/hero.jpeg');
+    background-size: cover;
     grid-column: full-start / full-end;
+    padding: 2.5rem;
+
+
+    display: grid;
+    grid-template-rows: 1fr min-content 1fr 1fr min-content 2rem;
+    grid-template-columns: 1fr;
+    grid-row-gap: 1.5rem;
+
+    @media only screen and (min-width: 31.25em) {
+        grid-template-rows: 1fr min-content 7rem 1fr min-content 3rem;
+    }
 
     @media only screen and (min-width: 50em) {
         grid-column: full-start / col-end 6;
     }
 
     &__logo {
-        width: 20px;
+        height: 3.5rem;
+        justify-self: center;
     }
 
-    &__logo-img {
+    &__companies {
         width: 100%;
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__seenon-text {
+        text-align: center;
+        position: relative;
+
+        &::before,
+        &::after {
+            //Seen on text decoration
+            content: "";
+            background-color: $color-grey-dark-1;
+            position: absolute;
+            height: 2px;
+            width: 40%;
+            top: 50%;
+        }
+
+        &::before {
+            left: 0;
+        }
+
+        &::after {
+            right: 0;
+        }
+    }
+
+    &__company {
+        height: 1.3rem;
+
+        @media only screen and (min-width: 27.5em) {
+            height: 1.8rem;
+        }
+
+        @media only screen and (min-width: 37.5em) {
+            height: 2rem;
+        }
+    }
+
+    .btn {
+        align-self: start;
+        justify-self: center;
     }
 }
